@@ -45,4 +45,4 @@ I reviewed the Feed Reader Testing [Project Rubric](https://review.udacity.com/#
 18. Callbacks were used to ensure that feeds are loaded before they are tested.
 19. Implemented error handling for undefined variables and out-of-bound array access.
 20. When I completed the steps above - all my tests passed. 
-21. Wrote this README file detailing all steps required to successfully run the application. 
+21. Wrote this README file detailing all steps required to successfully do the feed reader test. 

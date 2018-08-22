@@ -75,17 +75,17 @@ $(function() {
 
     /* This is a new test suite named "Initial Entries" */
     describe('Initial Entries', function() {
+        let feed = document.querySelector('.feed');
         /* Below is the test that ensures when the loadFeed
-         * function is called and completes its work, there is at least
-         * a single .entry element within the .feed container.
+         * function is called and completes its work, 
          */
         beforeEach(function(done) {
             loadFeed(0, done);
         });
-
+        //there is at least a single .entry element within the .feed container.
         it('completes work', function() {
-            let feed = document.querySelector('.feed');
-            expect(feed.children.length > 0).toBe(true);
+            expect(feed.length < 0).toBe(false);
+            expect(feed.children.length < 0).toBe(false);
         });
 
     });
@@ -94,6 +94,7 @@ $(function() {
     describe('New Feed Selection', function() {
         let feed = document.querySelector('.feed');
         const newFeed = [];
+        const nextFeed = [];
         /* This test ensures that the a new feed is loaded
          * by the loadFeed function 
          */
@@ -103,11 +104,15 @@ $(function() {
                 newFeed.push(item.innerText);
             });
             loadFeed(1, done);
+            Array.from(feed.children).forEach(function(item){
+                nextFeed.push(item.innerText);
+            });
         }); 
             // this ensures that the content actually changes.           
         it('changes content', function() {
             Array.from(feed.children).forEach(function(item, i){
-                expect(newFeed[i] !== item.innerText ).toBe(true);
+                expect(newFeed[i] !== item.innerText).toBe(true);
+                expect(newFeed[i] !== nextFeed[i]).toBe(false);
             });
         });
     });    
@@ -115,5 +120,5 @@ $(function() {
 /* 
 Referenced:
  Udacity Javascript Testing course
- Matthew Cranford - Feed Reader Walkthrough part 1-4.
+ Matthew Cranford - Feed Reader Walkthrough part 1-4. 
 */
