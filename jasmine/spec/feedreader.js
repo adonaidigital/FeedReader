@@ -26,9 +26,8 @@ $(function() {
             expect(allFeeds.length).not.toBe(0);
         });
 
-
-        /* TODO: Write a test that loops through each feed
-         * in the allFeeds object and ensures it has a URL defined
+        /* This is the test that loops through each feed
+         * in the allFeeds object and ensures that URL is defined
          * and that the URL is not empty.
          */
         it('url defined', function() {
@@ -38,9 +37,8 @@ $(function() {
             }
         });
 
-
-        /* TODO: Write a test that loops through each feed
-         * in the allFeeds object and ensures it has a name defined
+        /* This is the test that loops through each feed
+         * in the allFeeds object and ensures that a name is defined
          * and that the name is not empty.
          */
         it('name defined', function() {
@@ -51,22 +49,19 @@ $(function() {
         });
     });
 
-
-    /* TODO: Write a new test suite named "The menu" */
+    /* This is the test suite named "The menu" */
     describe('The menu', function() {
-        /* TODO: Write a test that ensures the menu element is
-         * hidden by default. You'll have to analyze the HTML and
-         * the CSS to determine how we're performing the
-         * hiding/showing of the menu element.
+        /* This is the test that ensures the menu element is
+         * hidden by default. 
          */
         it('hidden', function() {
             let body = document.querySelector('body');
             expect(body.classList.contains('menu-hidden')).toBe(true);
         });
-         /* TODO: Write a test that ensures the menu changes
-          * visibility when the menu icon is clicked. This test
-          * should have two expectations: does the menu display when
-          * clicked and does it hide when clicked again.
+
+         /* This is the test that ensures the menu changes
+          * visibility when the menu icon is clicked.  
+          * The menu display when clicked and does it hide when clicked again.
           */
         it('toggles', function() {
             let body = document.querySelector('body');
@@ -77,13 +72,12 @@ $(function() {
             expect(body.classList.contains('menu-hidden')).toBe(true);
         }); 
     });
-    /* TODO: Write a new test suite named "Initial Entries" */
+
+    /* This is a new test suite named "Initial Entries" */
     describe('Initial Entries', function() {
-        /* TODO: Write a test that ensures when the loadFeed
+        /* Below is the test that ensures when the loadFeed
          * function is called and completes its work, there is at least
          * a single .entry element within the .feed container.
-         * Remember, loadFeed() is asynchronous so this test will require
-         * the use of Jasmine's beforeEach and asynchronous done() function.
          */
         beforeEach(function(done) {
             loadFeed(0, done);
@@ -95,13 +89,13 @@ $(function() {
         });
 
     });
-    /* TODO: Write a new test suite named "New Feed Selection" */
+
+    /* This is a test suite named "New Feed Selection" */
     describe('New Feed Selection', function() {
         let feed = document.querySelector('.feed');
         const newFeed = [];
-        /* TODO: Write a test that ensures when a new feed is loaded
-         * by the loadFeed function that the content actually changes.
-         * Remember, loadFeed() is asynchronous.
+        /* This test ensures that the a new feed is loaded
+         * by the loadFeed function 
          */
         beforeEach(function(done) {
             loadFeed(0);
@@ -110,12 +104,16 @@ $(function() {
             });
             loadFeed(1, done);
         }); 
-                        
+            // this ensures that the content actually changes.           
         it('changes content', function() {
             Array.from(feed.children).forEach(function(item, i){
-                //console.log(item.innerText, newFeed[i], item.innerText === newFeed[i]);
-                expect(item.innerText === newFeed[i]).toBe(false);
+                expect(newFeed[i] !== item.innerText ).toBe(true);
             });
         });
     });    
 }());
+/* 
+Referenced:
+ Udacity Javascript Testing course
+ Matthew Cranford - Feed Reader Walkthrough part 1-4.
+*/
