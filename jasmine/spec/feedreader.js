@@ -51,20 +51,18 @@ $(function() {
 
     /* This is the test suite named "The menu" */
     describe('The menu', function() {
+        let body = document.querySelector('body');
         /* This is the test that ensures the menu element is
          * hidden by default. 
          */
         it('hidden', function() {
-            let body = document.querySelector('body');
             expect(body.classList.contains('menu-hidden')).toBe(true);
         });
-
          /* This is the test that ensures the menu changes
           * visibility when the menu icon is clicked.  
           * The menu display when clicked and does it hide when clicked again.
           */
         it('toggles', function() {
-            let body = document.querySelector('body');
             let menu = document.querySelector('.menu-icon-link');
             menu.click();
             expect(body.classList.contains('menu-hidden')).toBe(false);
@@ -75,8 +73,6 @@ $(function() {
 
     /* This is a new test suite named "Initial Entries" */
     describe('Initial Entries', function() {
-        let feed = document.querySelector('.feed');
-        let entry= document.querySelectorAll('.entry');
         /* Below is the test that ensures when the loadFeed
          * function is called and completes its work, 
          */
@@ -85,36 +81,28 @@ $(function() {
         });
         //there is at least a single .entry element within the .feed container.
         it('completes work', function() {
-            expect(feed.length < 0).toBe(false);
-            expect(entry.child < 0).toBe(false);
+        let feed = document.querySelector('.feed');
+        let entry= feed.querySelectorAll('.entry');
+            expect(entry.length < 0).toBe(false);
         });
     });
 
     /* This is a test suite named "New Feed Selection" */
     describe('New Feed Selection', function() {
-        //const feed = document.querySelector('.feed').innerHTML;
-        let oldFeed;
-        let newFeed;
         /* This test ensures that the a new feed is loaded
          * by the loadFeed function 
          */
-        beforeEach(function(done) {
-            loadFeed(0);
-                 //let oldFeed = [];
-                oldFeed = document.querySelector('.feed').innerHTML;
-                // Array.from(feed.children).forEach(function(item){
-                // oldFeed.push(item);
-
-                loadFeed(1, done);
-                //let newFeed = [];
-                newFeed = document.querySelector('.feed').innerHtml;
-                // Array.from(feed.children).forEach(function(item){
-                // newFeed.push(item);
-                done();              
-           }); 
+           beforeEach(function(done){
+            loadFeed(0, function () {
+                oldFeed = document.querySelector('.feed').innerText;
+                loadFeed(1, function(){
+                   newFeed = document.querySelector('.feed').innerText;
+                    done();        
+                });        
+            });
+        });
         // this ensures that the content actually changes.           
         it('changes content', function(done) {
-                //Array.from(feed.children).forEach(function(i){
                 expect(oldFeed).not.toEqual(newFeed);
                 done();
         });   
