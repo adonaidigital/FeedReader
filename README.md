@@ -1,10 +1,10 @@
 # Feed Reader Testing 
-* [How to view this project](#How to view this project)
-* [Overview](#A brief overview)
-* [Why this project](#Why this Project?)
-* [What I learnt](#What I learnt)
-* [How it will help my career](#How will this help my career?)
-* [Steps taken to complete the project](#How I completed this project.)
+* [How to view this project](#HowtoViewThisProject)
+* [Overview](#AbriefOverview)
+* [Why this project](#WhyThisProject?)
+* [What I learnt](#WhatIlearnt)
+* [How it will help my career](#HowWillThisHelpMyCareer?)
+* [Steps taken to complete the project](#HowICompletedThisProject.)
 
 ## How to view this project
 
