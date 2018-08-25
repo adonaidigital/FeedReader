@@ -42,9 +42,9 @@ $(function() {
          * and that the name is not empty.
          */
         it('name defined', function() {
-            for (let name of allFeeds){
-                expect(name).toBeDefined();
-                expect(name.length).not.toBe(0);
+            for (let feed of allFeeds){
+                expect(feed.name).toBeDefined();
+                expect(feed.name.length).not.toBe(0);
             }
         });
     });
@@ -76,6 +76,7 @@ $(function() {
     /* This is a new test suite named "Initial Entries" */
     describe('Initial Entries', function() {
         let feed = document.querySelector('.feed');
+        let entry= document.querySelectorAll('.entry');
         /* Below is the test that ensures when the loadFeed
          * function is called and completes its work, 
          */
@@ -85,39 +86,42 @@ $(function() {
         //there is at least a single .entry element within the .feed container.
         it('completes work', function() {
             expect(feed.length < 0).toBe(false);
-            expect(feed.children.length < 0).toBe(false);
+            expect(entry.child < 0).toBe(false);
         });
-
     });
 
     /* This is a test suite named "New Feed Selection" */
     describe('New Feed Selection', function() {
-        let feed = document.querySelector('.feed');
-        const newFeed = [];
-        const nextFeed = [];
+        const feed = document.querySelector('.feed').innerHTML;
+        let oldFeed;
+        let newFeed;
         /* This test ensures that the a new feed is loaded
          * by the loadFeed function 
          */
         beforeEach(function(done) {
             loadFeed(0);
-            Array.from(feed.children).forEach(function(item){
-                newFeed.push(item.innerText);
-            });
-            loadFeed(1, done);
-            Array.from(feed.children).forEach(function(item){
-                nextFeed.push(item.innerText);
-            });
-        }); 
-            // this ensures that the content actually changes.           
-        it('changes content', function() {
-            Array.from(feed.children).forEach(function(item, i){
-                expect(newFeed[i] !== item.innerText).toBe(true);
-                expect(newFeed[i] !== nextFeed[i]).toBe(false);
-            });
-        });
+                 //let oldFeed = [];
+                oldFeed = document.querySelector('.feed').innerHTML;
+                // Array.from(feed.children).forEach(function(item){
+                // oldFeed.push(item);
+
+                loadFeed(1, done);
+                //let newFeed = [];
+                newFeed = document.querySelector('.feed').innerHtml;
+                // Array.from(feed.children).forEach(function(item){
+                // newFeed.push(item);
+                done();              
+           }); 
+        // this ensures that the content actually changes.           
+        it('changes content', function(done) {
+                //Array.from(feed.children).forEach(function(i){
+                expect(oldFeed).not.toEqual(newFeed);
+                done();
+        });   
     });    
 }());
-/* 
+
+/*
 Referenced:
  Udacity Javascript Testing course
  Matthew Cranford - Feed Reader Walkthrough part 1-4. 
