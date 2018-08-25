@@ -92,7 +92,7 @@ $(function() {
 
     /* This is a test suite named "New Feed Selection" */
     describe('New Feed Selection', function() {
-        const feed = document.querySelector('.feed').innerHTML;
+        //const feed = document.querySelector('.feed').innerHTML;
         let oldFeed;
         let newFeed;
         /* This test ensures that the a new feed is loaded
