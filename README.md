@@ -1,10 +1,10 @@
 # Feed Reader Testing 
-* [How to view this project](#instructions)
-* [Overview](#)
-* [Why this project](#)
-* [What i learnt](#)
-* [How it will help my career](#)
-* [Steps taken to complete the project](#strikethroughCompletedSteps)
+* [How to view this project](#How to view this project)
+* [Overview](#A brief overview)
+* [Why this project](#Why this Project?)
+* [What I learnt](#What I learnt)
+* [How it will help my career](#How will this help my career?)
+* [Steps taken to complete the project](#How I completed this project.)
 
 ## How to view this project
 
@@ -34,7 +34,6 @@ I learnt how to use Jasmine to write a number of tests against a pre-existing ap
 # How I completed this project. 
 
 I strikethrough all completed steps.
-I reviewed the Feed Reader Testing [Project Rubric](https://review.udacity.com/#!/projects/3442558598/rubric)
 
 ~~1. I took the JavaScript Testing [course](https://www.udacity.com/course/ud549)~~
 ~~2. Then downloaded the [required project assets](http://github.com/udacity/frontend-nanodegree-feedreader).~~
